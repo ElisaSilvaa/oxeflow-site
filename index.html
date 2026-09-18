@@ -1,129 +1,338 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OxêFlow — Sistemas de gestão para pequenos negócios</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --verde-escuro:#14261C; --verde:#1F6F4A; --laranja:#E8543C;
-    --amarelo:#F5A623; --creme:#FBF6EF; --tinta:#1B1B1B;
-  }
-  *{box-sizing:border-box; margin:0; padding:0;}
-  body{font-family:'Inter',sans-serif; color:var(--tinta); background:var(--creme); line-height:1.5;}
-  h1,h2,h3{font-family:'Fraunces',serif; font-weight:600; letter-spacing:-0.01em;}
-  .eyebrow{font-family:'Space Grotesk',sans-serif; font-size:0.72rem; font-weight:600; letter-spacing:0.12em; text-transform:uppercase;}
-  a{color:inherit;}
-  .wrap{max-width:960px; margin:0 auto; padding:0 24px;}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  header{display:flex; align-items:center; justify-content:space-between; padding:20px 24px;}
-  .brand{display:flex; align-items:center; gap:10px; text-decoration:none;}
-  .brand-name{font-family:'Fraunces',serif; font-weight:600; font-size:1.1rem;}
-  .nav-cta{font-family:'Space Grotesk',sans-serif; font-size:0.82rem; font-weight:600; background:var(--verde-escuro); color:var(--creme); padding:10px 18px; border-radius:100px; text-decoration:none;}
+  <title>OxêFlow — Sistemas e automações por Elisa</title>
 
-  .hero{background:var(--verde-escuro); color:var(--creme); padding:60px 24px 70px;}
-  .hero .eyebrow{color:var(--amarelo); margin-bottom:16px;}
-  .hero h1{font-size:clamp(2rem,6vw,3rem); line-height:1.1; max-width:14ch; margin-bottom:18px;}
-  .hero h1 em{font-style:normal; color:var(--laranja);}
-  .hero p{font-size:1rem; color:rgba(251,246,239,0.75); max-width:42ch; margin-bottom:28px;}
-  .cta-row{display:flex; flex-wrap:wrap; gap:12px;}
-  .btn{font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:0.9rem; padding:14px 26px; border-radius:100px; text-decoration:none; display:inline-block; background:var(--laranja); color:var(--creme);}
-  .btn-outline{background:transparent; color:var(--creme); border:1px solid rgba(251,246,239,0.35);}
+  <meta
+    name="description"
+    content="Menos tarefas manuais. Mais tempo para fazer seu negócio crescer. Conheça os sistemas e automações sob medida da OxêFlow, por Elisa."
+  >
+  <meta name="theme-color" content="#2718ff">
 
-  section{padding:56px 24px;}
-  .section-head{max-width:50ch; margin-bottom:32px;}
-  .section-head .eyebrow{color:var(--verde); margin-bottom:12px;}
-  .section-head h2{font-size:clamp(1.4rem,3.4vw,1.9rem);}
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%232718ff'/%3E%3Ccircle cx='19' cy='22' r='7' fill='white'/%3E%3Cpath d='M29 45L45 18' stroke='white' stroke-width='14' stroke-linecap='round'/%3E%3C/svg%3E"
+  >
 
-  .grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:rgba(27,27,27,0.1); border:1px solid rgba(27,27,27,0.1); max-width:960px; margin:0 auto;}
-  .card{background:var(--creme); padding:24px;}
-  .card .eyebrow{color:var(--laranja); margin-bottom:8px;}
-  .card h3{font-size:1.02rem; margin-bottom:6px;}
-  .card p{font-size:0.88rem; color:rgba(27,27,27,0.65);}
-
-  .steps{max-width:960px; margin:0 auto;}
-  .step{display:grid; grid-template-columns:36px 1fr; gap:16px; padding:18px 0; border-top:1px solid rgba(27,27,27,0.1);}
-  .step:last-child{border-bottom:1px solid rgba(27,27,27,0.1);}
-  .step span{font-family:'Space Grotesk',sans-serif; font-weight:600; color:var(--verde);}
-  .step p{font-size:0.92rem; color:rgba(27,27,27,0.7);}
-
-  footer{background:var(--verde-escuro); color:var(--creme); padding:56px 24px 40px; text-align:center;}
-  footer h2{font-size:clamp(1.5rem,4vw,2rem); max-width:16ch; margin:0 auto 24px;}
-  footer .cta-row{justify-content:center;}
-  .footer-links{display:flex; justify-content:center; gap:24px; margin-top:36px; font-family:'Space Grotesk',sans-serif; font-size:0.85rem;}
-  .footer-links a{text-decoration:none; border-bottom:1px solid rgba(251,246,239,0.35); padding-bottom:2px;}
-  .fine{margin-top:36px; font-size:0.75rem; color:rgba(251,246,239,0.5);}
-
-  @media (max-width:600px){ .grid{grid-template-columns:1fr;} }
-</style>
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+  <header class="header wrap">
+    <a class="brand" href="#inicio" aria-label="OxêFlow, início">
+      <svg viewBox="0 0 55 55" aria-hidden="true">
+        <circle cx="12" cy="16" r="8"/>
+        <path
+          d="M23 43L42 12"
+          stroke="currentColor"
+          stroke-width="16"
+          stroke-linecap="round"
+        />
+      </svg>
 
-<header>
-  <a class="brand" href="#top">
-    <svg width="26" height="26" viewBox="0 0 440 440" aria-hidden="true">
-      <defs><linearGradient id="m" x1="0%" y1="0%" x2="0%" y2="100%">
-        <stop offset="0%" stop-color="#2E8B57"/><stop offset="55%" stop-color="#F5A623"/><stop offset="100%" stop-color="#E8543C"/>
-      </linearGradient></defs>
-      <g transform="translate(220,175) scale(0.72)">
-        <path d="M0,-70 C10,-70 18,-62 18,-52 L18,-10 C34,-10 46,-22 46,-38 C46,-48 54,-56 64,-56 C74,-56 82,-48 82,-38 C82,-4 54,24 18,24 L18,60 C18,70 10,78 0,78 C-10,78 -18,70 -18,60 L-18,24 C-54,24 -82,-4 -82,-38 C-82,-48 -74,-56 -64,-56 C-54,-56 -46,-48 -46,-38 C-46,-22 -34,-10 -18,-10 L-18,-52 C-18,-62 -10,-70 0,-70 Z" fill="url(#m)"/>
-      </g>
-    </svg>
-    <span class="brand-name">OxêFlow</span>
-  </a>
-  <a class="nav-cta" href="https://wa.me/5585988698464" target="_blank" rel="noopener">WhatsApp</a>
-</header>
+      OxêFlow
+      <span class="brand-tag">SISTEMAS E SOLUÇÕES</span>
+    </a>
 
-<main id="top">
-  <section class="hero">
-    <p class="eyebrow">Gestão sem planilha</p>
-    <h1>O fluxo do seu negócio, do pedido <em>até o caixa.</em></h1>
-    <p>Sistemas sob medida pra loja, fábrica, lanchonete ou prestador de serviço organizar pedido, estoque, entrega e financeiro num só lugar.</p>
-    <div class="cta-row">
-      <a class="btn" href="https://wa.me/5585988698464" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-      <a class="btn btn-outline" href="https://instagram.com/oxeflowsolucoes" target="_blank" rel="noopener">Ver no Instagram</a>
+    <nav aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#sobre">Quem cria</a>
+
+      <a class="nav-contact" href="#contato">
+        Vamos conversar
+        <span aria-hidden="true">↗</span>
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero wrap">
+      <div class="hero-copy">
+        <p class="eyebrow">
+          TECNOLOGIA COM PROPÓSITO. FEITA POR ELISA.
+        </p>
+
+        <h1>
+          Seu negócio<br>
+          merece <em>fluir.</em>
+        </h1>
+
+        <p class="intro">
+          Menos tarefas manuais. Mais tempo para fazer seu negócio crescer.
+        </p>
+
+        <p class="hero-detail">
+          Sistemas e automações sob medida para organizar sua operação
+          e simplificar o seu dia a dia.
+        </p>
+
+        <a
+          class="button primary whatsapp"
+          href="https://wa.me/5585988698464?text=Ol%C3%A1%2C%20Elisa!%20Conheci%20a%20Ox%C3%AAFlow%20e%20quero%20conversar%20sobre%20um%20sistema%20para%20meu%20neg%C3%B3cio."
+        >
+          Quero simplificar meu negócio
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <p class="micro">
+          Converse diretamente com quem desenvolve.
+        </p>
+      </div>
+
+      <div class="hero-visual">
+        <div class="visual-top">
+          <span>O SEU NEGÓCIO, MAIS LEVE</span>
+          <span class="tiny-star" aria-hidden="true">✳</span>
+        </div>
+
+        <div class="flow-title">
+          Cada parte conectada.<br>
+          <i>Você no controle.</i>
+        </div>
+
+        <div class="flow-list">
+          <div>
+            <span class="flow-icon">01</span>
+
+            <span>
+              Pedidos e clientes
+              <small>Informações no mesmo lugar</small>
+            </span>
+
+            <span class="check" aria-hidden="true">✓</span>
+          </div>
+
+          <div>
+            <span class="flow-icon">02</span>
+
+            <span>
+              Rotinas automatizadas
+              <small>Menos trabalho repetitivo</small>
+            </span>
+
+            <span class="check" aria-hidden="true">✓</span>
+          </div>
+
+          <div>
+            <span class="flow-icon">03</span>
+
+            <span>
+              Gestão organizada
+              <small>Mais clareza para decidir</small>
+            </span>
+
+            <span class="check" aria-hidden="true">✓</span>
+          </div>
+        </div>
+
+        <div class="visual-bottom">
+          <span>
+            Da sua rotina<br>
+            para a sua solução.
+          </span>
+
+          <span class="signature">OxêFlow</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="ribbon">
+      <div class="wrap">
+        <span>FEITO PARA A SUA ROTINA</span>
+        <span>Atendimento direto</span>
+        <span>Soluções sob medida</span>
+        <span>Olhar atento aos detalhes</span>
+      </div>
     </div>
-  </section>
 
-  <section>
-    <div class="section-head wrap">
-      <p class="eyebrow">Pra quem é</p>
-      <h2>Feito pro dia a dia de quem toca o negócio.</h2>
-    </div>
-    <div class="grid">
-      <div class="card"><p class="eyebrow">Lojas</p><h3>Venda e estoque juntos</h3><p>Saiba o que entra, o que sai e o que tá acabando.</p></div>
-      <div class="card"><p class="eyebrow">Fábricas</p><h3>Produção com visibilidade</h3><p>Do pedido à entrega, sabendo o que falta produzir.</p></div>
-      <div class="card"><p class="eyebrow">Lanchonetes</p><h3>Pedido sem bagunça</h3><p>Comanda, pedido e fechamento de caixa organizados.</p></div>
-      <div class="card"><p class="eyebrow">Serviços</p><h3>Cliente e financeiro</h3><p>Contratos, cobranças e histórico num lugar só.</p></div>
-    </div>
-  </section>
+    <section id="servicos" class="services wrap">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">COMO POSSO AJUDAR</p>
 
-  <section>
-    <div class="section-head wrap">
-      <p class="eyebrow">Como funciona</p>
-      <h2>Sistema sob medida, ajustado pro seu processo.</h2>
-    </div>
-    <div class="steps">
-      <div class="step"><span>01</span><p>Conversamos sobre como o seu negócio funciona hoje.</p></div>
-      <div class="step"><span>02</span><p>Montamos o sistema com pedidos, estoque, entregas e financeiro.</p></div>
-      <div class="step"><span>03</span><p>Você usa, a gente acompanha e ajusta com o tempo.</p></div>
-    </div>
-  </section>
-</main>
+          <h2>
+            Tecnologia que trabalha<br>
+            <em>com você.</em>
+          </h2>
+        </div>
 
-<footer>
-  <h2>Vamos organizar o fluxo do seu negócio?</h2>
-  <div class="cta-row">
-    <a class="btn" href="https://wa.me/5585988698464" target="_blank" rel="noopener">Chamar no WhatsApp</a>
-  </div>
-  <div class="footer-links">
-    <a href="https://instagram.com/oxeflowsolucoes" target="_blank" rel="noopener">Instagram</a>
-    <a href="mailto:oxeflowapps@gmail.com">oxeflowapps@gmail.com</a>
-  </div>
-  <p class="fine">© 2026 OxêFlow. Sistemas de gestão sob medida.</p>
-</footer>
+        <p>
+          Da tarefa que se repete ao processo que precisa de organização:
+          vamos encontrar o que faz sentido para o seu negócio.
+        </p>
+      </div>
 
+      <div class="service-grid">
+        <article>
+          <span class="service-number">01 / GESTÃO</span>
+          <div class="service-symbol" aria-hidden="true">▦</div>
+
+          <h3>Sistemas sob medida</h3>
+
+          <p>
+            Organize clientes, pedidos, estoque e financeiro em um
+            sistema pensado para o seu jeito de trabalhar.
+          </p>
+
+          <a href="#contato">
+            Quero organizar minha gestão
+            <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article>
+          <span class="service-number">02 / PRODUTIVIDADE</span>
+          <div class="service-symbol" aria-hidden="true">↔</div>
+
+          <h3>Automações e integrações</h3>
+
+          <p>
+            Conecte ferramentas e reduza tarefas repetitivas, como
+            transferir dados, atualizar planilhas e enviar avisos.
+          </p>
+
+          <a href="#contato">
+            Quero automatizar minha rotina
+            <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+
+        <article>
+          <span class="service-number">03 / ATENDIMENTO</span>
+          <div class="service-symbol" aria-hidden="true">◷</div>
+
+          <h3>Agendamentos digitais</h3>
+
+          <p>
+            Facilite a marcação de horários e a organização de serviços
+            para salões, barbearias e negócios com agenda.
+          </p>
+
+          <a href="#contato">
+            Quero facilitar meus agendamentos
+            <span aria-hidden="true">↗</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre" class="about wrap">
+      <div class="about-heading">
+        <p class="eyebrow">
+          UMA MULHER POR TRÁS DA TECNOLOGIA
+        </p>
+
+        <h2>Prazer, <em>Elisa.</em></h2>
+
+        <span class="role">
+          Fundadora e desenvolvedora da OxêFlow
+        </span>
+      </div>
+
+      <div class="about-copy">
+        <p>
+          Minha experiência com atendimento e rotinas administrativas
+          me mostrou quanto tempo um negócio perde com processos manuais.
+        </p>
+
+        <p>
+          Na OxêFlow, uno essa vivência ao desenvolvimento de sistemas
+          para criar soluções que façam sentido na prática. Você conversa
+          comigo, explica o que precisa e participa da construção.
+        </p>
+
+        <div class="about-sign">
+          Tecnologia com atenção ao seu negócio.
+          <span>Elisa</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="process wrap">
+      <p class="eyebrow">DO PRIMEIRO OI À SOLUÇÃO</p>
+
+      <h2>Começa com uma boa conversa.</h2>
+
+      <div class="steps">
+        <div>
+          <span>01</span>
+          <h3>Entendo sua rotina</h3>
+          <p>
+            Você me conta como trabalha e o que gostaria de simplificar.
+          </p>
+        </div>
+
+        <div>
+          <span>02</span>
+          <h3>Definimos a solução</h3>
+          <p>
+            Combinamos funcionalidades, investimento e prazo em uma proposta.
+          </p>
+        </div>
+
+        <div>
+          <span>03</span>
+          <h3>Construímos seu sistema</h3>
+          <p>
+            Desenvolvimento, validação e orientação para você começar a usar.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato" class="contact wrap">
+      <div>
+        <p class="eyebrow">
+          VAMOS TIRAR SUA IDEIA DO PAPEL?
+        </p>
+
+        <h2>
+          Mais produtividade.<br>
+          <em>Menos complicação.</em>
+        </h2>
+
+        <p>
+          Me conte o que toma tempo no seu dia.<br>
+          A próxima solução pode começar por aí.
+        </p>
+      </div>
+
+      <div class="contact-action">
+        <a
+          class="button light"
+          href="https://wa.me/5585988698464?text=Ol%C3%A1%2C%20Elisa!%20Quero%20um%20or%C3%A7amento%20da%20Ox%C3%AAFlow.%20Meu%20neg%C3%B3cio%20%C3%A9%3A%20"
+        >
+          Conversar com Elisa no WhatsApp
+          <span aria-hidden="true">↗</span>
+        </a>
+
+        <span>Orçamento de acordo com o seu projeto.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <a class="footer-brand" href="#inicio">OxêFlow</a>
+
+    <p>Sistemas e soluções · Por Elisa</p>
+
+    <a
+      href="https://instagram.com/oxeflowsolucoes"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Instagram
+    </a>
+
+    <a href="mailto:oxeflowapps@gmail.com">
+      oxeflowapps@gmail.com
+    </a>
+
+    <span>Fortaleza, CE · Atendimento on-line</span>
+  </footer>
 </body>
 </html>
